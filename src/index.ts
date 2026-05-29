@@ -9,6 +9,5 @@ app.listen(Port, () => {
 app.use(RouterUsaurio)
 app.use(dotenv.config)
 
-
 console.log("mogollon")
 console.log("Estamosen la Developer --stack")
