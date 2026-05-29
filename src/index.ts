@@ -7,4 +7,7 @@ app.listen( Port,  ()=>{
         console.log("en el puerto de " +  Port)
 })
 app.use(RouterUsaurio)
-app.use( dotenv.config)
+app.use( dotenv.config) 
+
+
+console.log("mogollon")

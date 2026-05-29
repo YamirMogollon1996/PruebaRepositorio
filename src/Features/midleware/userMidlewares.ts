@@ -12,7 +12,6 @@ export class RequestError extends Error {
     public statusCode: number;
     public details?: any;
 
-    
     constructor(message: string, statusCode: number = 400, details?: any) {
         super(message);
         this.name = "RequestError";
