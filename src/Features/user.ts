@@ -1,13 +1,8 @@
 export class User {
     public name: string  ;
     public lastname: string
-    constructor(
-        name: string,
-        lastname: string
-    ) {
+    constructor(   name: string,lastname: string) {
         this.name = name,
-            this.lastname = name
+            this.lastname = lastname
     }
-
-
 }
