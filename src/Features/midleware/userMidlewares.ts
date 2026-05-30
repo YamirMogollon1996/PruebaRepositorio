@@ -20,3 +20,4 @@ export class RequestError extends Error {
         Object.setPrototypeOf(this, RequestError.prototype);
     }
 }
+
