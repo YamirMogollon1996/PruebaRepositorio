@@ -18,5 +18,11 @@ export class UserServices {
 
         BuscarUsuario () {
                 console.log("llevame al Arto al sheep")
+        }  
+
+        llamaaAmiusuarioDetalle () {
+                console.log("buenis duas Log")
+                
         }
+                
 }
