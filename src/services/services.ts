@@ -1,4 +1,6 @@
 import { User } from "../Features/user.js"
+
+
 export class UserServices {
         public lista: string[]
         constructor() {
@@ -14,5 +16,9 @@ export class UserServices {
         NotesUserListDealle() {
         }
         LLaveDetalleSenior() {
+        } 
+
+        BuscarUsuario () {
+                console.log("llevame al Arto al sheep")
         }
 }
