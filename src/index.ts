@@ -2,11 +2,7 @@ import express from "express"
 import { RouterUsaurio } from "./Router/router.js"
 import dotenv from "dotenv"
 import { db } from "./db/db.js"
-
-
-
 const conectarPasswird = async () => {
-
         try {
                 await db.authenticate()
                 console.log("Coneccion a las MYSQL")
@@ -33,6 +29,7 @@ console.log("Estamosen la Developer --stack")
 console.log("mogollon")
 console.log("Estamosen la Developer --stack")
 console.log("Estamosen la Developer --stack") 
+
 
 try {
         console.log(["Buenos Dias Peru"])
