@@ -1,8 +1,5 @@
 import { User } from "../Features/user.js"
-
-
 export class UserServices {
-
         public lista: string[]
         constructor() {
                 this.lista = []
@@ -15,12 +12,7 @@ export class UserServices {
                 console.log("User Senior")
         }
         NotesUserListDealle() {
-
-
         }
-
         LLaveDetalleSenior() {
-
         }
-
 }
