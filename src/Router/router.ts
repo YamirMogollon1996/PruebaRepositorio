@@ -16,3 +16,8 @@ RouterUsaurio.get("/",   MidlewaresUser , async (req, res) => {
 RouterUsaurio.post("/", (req, res) => {
   return res.send("crear el body");
 });
+
+RouterUsaurio.delete("/" ,  ( req , res) =>{
+
+      return res.send({msg:`"Se elimino el usuario con el id ${req.body} "    `})
+})
