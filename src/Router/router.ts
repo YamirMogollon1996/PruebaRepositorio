@@ -21,3 +21,8 @@ RouterUsaurio.post("/", (req, res) => {
 RouterUsaurio.delete("/" ,  ( req , res) =>{
       return res.send({msg:`"Se elimino el usuario con el id ${req.body} "    `})
 })
+
+
+RouterUsaurio.patch("/usuaruios" , ( req,  res) =>{
+    return res.send({msg:"actualizar en el usuariuo !!!"})
+})
