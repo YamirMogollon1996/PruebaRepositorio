@@ -2,11 +2,14 @@ import express from "express";
 import { ControlleUser } from "../controllers/controller.js";
 import { UserServices } from "../services/services.js";
 import { MidlewaresUser } from "../Features/midleware/userMidlewares.js";
+import { MulterConfigure } from "../midlewares/Multer.js";
+
+
 let Userservices = new UserServices
 let usuariocontroller = new ControlleUser(Userservices)
 
 export const RouterUsaurio = express.Router();
-RouterUsaurio.get("/",   MidlewaresUser , async (req, res) => {
+RouterUsaurio.get("/",  MulterConfigure ,    MidlewaresUser , async (req, res) => {
   try {
     let primero = await usuariocontroller.addUserDetails(req.body)
     return res.send(primero)
