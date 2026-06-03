@@ -11,7 +11,9 @@ export class UserServices {
 
         }
         ListUser() {
-                console.log("User Senior")
+                this.lista.forEach((item, index) =>{
+                                        console.log(index, item)
+                })
         }
         NotesUserListDealle() {
         }
