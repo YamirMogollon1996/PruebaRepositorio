@@ -11,22 +11,21 @@ export class UserServices {
 
         }
         ListUser() {
-                this.lista.forEach((item, index) =>{
-                                        console.log(index, item)
+                this.lista.forEach((item, index) => {
+                        console.log(index, item)
                 })
         }
         NotesUserListDealle() {
         }
         LLaveDetalleSenior() {
-        } 
-
-        BuscarUsuario () {
-                console.log("llevame al Arto al sheep")
-        }  
-
-        llamaaAmiusuarioDetalle () {
-                console.log("buenis duas Log")
-                
         }
-                
+        BuscarUsuario() {
+                console.log("llevame al Arto al sheep")
+        }
+
+        llamaaAmiusuarioDetalle() {
+                console.log("buenis duas Log")
+
+        }
+
 }
