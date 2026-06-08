@@ -14,5 +14,13 @@ export const db =   new Sequelize(
 
 
 export const Base_de_datos =  new Sequelize({
-    host:"127.0.0.1" 
+    host:"127.0.0.1"  ,   
+
 })
+
+
+export const ContainerDeveloper  =   async   () =>{
+
+        console.log("Buenos Dias Developer")
+}
+
