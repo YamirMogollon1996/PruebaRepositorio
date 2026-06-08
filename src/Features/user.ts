@@ -3,7 +3,6 @@ export class User {
     public lastname: string  ; 
     public ClickInterface:  string  
 
-    
     constructor(name: string, lastname: string ,  ClickInterface :string) {
             this.name = name,
             this.lastname = lastname
@@ -11,3 +10,6 @@ export class User {
     }
 }
 
+
+
+// HunterxHunter@@123

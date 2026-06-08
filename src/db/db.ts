@@ -11,3 +11,8 @@ export const db =   new Sequelize(
                 logging:false
         }
 )
+
+
+export const Base_de_datos =  new Sequelize({
+    host:"127.0.0.1" 
+})
