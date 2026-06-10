@@ -5,13 +5,14 @@
     // File Layout
     "rootDir": "./src",
     "outDir": "./dist",
-
+    
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "module": "nodenext",
-    "target": "esnext", 
+    "target": "es2020", 
+  
     "moduleResolution": "nodenext",
-    "types": [], 
+    "types": ["jest" ,"node"], 
   "esModuleInterop": true,    
     // For nodejs:
     // "lib": ["esnext"],

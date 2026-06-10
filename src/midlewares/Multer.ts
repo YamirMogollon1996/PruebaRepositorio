@@ -15,10 +15,11 @@ const uploadMulter = multer({
     fileFilter :  (req, file , cb) =>{
             const iamgenesPermitidad = ["JPG","JPED"] 
             const Exname =  extname(file.mimetype) 
-            if (  file.mimetype(extname) ){
+            // if (  file.mimetype(extname) ){
                 
-            }   else{
-                cb( new Error("Solo se permiten imiages") , false)
-            }         
-    }
+            // }   else{
+            //     cb( new Error("Solo se permiten imiages") , false)
+            // }         
+  
+        }
 })

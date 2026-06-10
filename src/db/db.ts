@@ -1,7 +1,5 @@
 console.log("El sueño Developer Detalle") 
 import {Sequelize} from "sequelize" 
-
-
 export const db =   new Sequelize(
       "aparentemente", "host","1233", 
         {
@@ -11,14 +9,9 @@ export const db =   new Sequelize(
                 logging:false
         }
 )
-
-
 export const Base_de_datos =  new Sequelize({
     host:"127.0.0.1"  ,   
-
 })
-
-
 export const ContainerDeveloper  =   async   () =>{
 
         console.log("Buenos Dias Developer")

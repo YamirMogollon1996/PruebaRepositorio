@@ -1,8 +1,7 @@
-import express from "express"
-import { RouterUsaurio } from "./Router/router.js"
+import express, { Router } from "express"
 import dotenv from "dotenv"
-import { db } from "./db/db.js" 
-
+import { RouterUsaurio } from "./Router/router"
+import { db } from "./db/db.js"
 
 const conectarPasswird = async () => {
         try {
@@ -13,21 +12,16 @@ const conectarPasswird = async () => {
         }
 }
 
-
-const app = express()
+export const app = express()
 let Port = 9000
 app.listen(Port, () => {
         console.log("en el puerto de " + Port)
         conectarPasswird()
 
 })
-
-
 app.use(RouterUsaurio)
 app.use(dotenv.config)
 app.use(dotenv.config)
-console.log("Sataggin Ar --")
-
 try {
         console.log(["Buenos Dias Peru"])
 } catch (error) {
