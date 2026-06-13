@@ -1,30 +1,32 @@
-import express, { Router } from "express"
+import express from "express"
 import dotenv from "dotenv"
 import { RouterUsaurio } from "./Router/router"
-import { db } from "./db/db.js"
+import { db } from "./db/db" 
+import morgan from "morgan"
 
-const conectarPasswird = async () => {
-        try {
-                await db.authenticate()
-                console.log("Coneccion a las MYSQL")
-        } catch (error) {
-                console.log(error)
-        }
-}
 
+dotenv.config()   
 export const app = express()
-let Port = 9000
-app.listen(Port, () => {
-        console.log("en el puerto de " + Port)
-        conectarPasswird()
+let Port = process.env.PORT || 3499
 
-})
-app.use(RouterUsaurio)
-app.use(dotenv.config)
-app.use(dotenv.config)
-try {
-        console.log(["Buenos Dias Peru"])
-} catch (error) {
-        console.log("no esta dentro Peru")
+// Middlewares primero
 
+const boostrap = async () => {
+    try {
+        await db.authenticate() 
+        console.log("✅ Conectado a la Base de datos")
+        await db.sync() 
+        console.log("✅ Tablas sincronizadas")
+    } catch (error) {
+        console.error("❌ Error al conectar la BD:", error)
+    }
 }
+
+app.use(morgan('dev'))
+app.use(express.json())
+app.use("/user" , RouterUsaurio)
+boostrap()
+app.listen(Port, () => {
+    console.log("[Servidor en puerto] " + Port)
+})
+

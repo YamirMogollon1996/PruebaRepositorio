@@ -1,13 +1,15 @@
+// import { Usuario } from "../UsuarioEntitty";
+// import {   } from "sequelize"  
 
 
-export class Usuario {
+export class UsuarioDto      {  
     public nombre: string;
     public lastname: string;
     constructor(nombre: string, lastname: string) {
-        this.nombre = nombre,
+    this.nombre = nombre,
             this.lastname = lastname
     }
-    
+
     ObtenerMisDatos() {
         return this.lastname + ' - ' + this.nombre + 'Relaxo vision'
     }

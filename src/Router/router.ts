@@ -1,30 +1,64 @@
 import express from "express";
-import { ControlleUser } from "../controllers/controller.js";
-import { UserServices } from "../services/services.js";
-import { MidlewaresUser } from "../Features/midleware/userMidlewares.js";
+import { UserServices } from "../services/services";
+import { MidlewaresUser } from "../Features/midleware/userMidlewares";
+import { ControlleUser } from "../controllers/controller";
 // import { MulterConfigure } from "../midlewares/Multer.js";
-
 
 let Userservices = new UserServices
 let usuariocontroller = new ControlleUser(Userservices)
-
 export const RouterUsaurio = express.Router();
-RouterUsaurio.get("/",    MidlewaresUser , async (req, res) => {
+
+
+
+RouterUsaurio.get("/ver", async (req, res) => {
   try {
-    let primero = await usuariocontroller.addUserDetails(req.body)
-    return res.send(primero)
+
+    let datos = await usuariocontroller.ListUser()
+    console.log(datos)
+    return res.send(datos)
   } catch (error) {
     return res.send(error)
   }
 });
+RouterUsaurio.post("/crear", async (req, res) => {
+  try {
+    const { name, lastname, edad } = req.body
+    if (!name || !lastname || !edad) {
+      return res.sendStatus(400)
+    }
 
-RouterUsaurio.post("/", (req, res) => {
-  return res.send("crear el body");
+    let datos = await (await usuariocontroller.addUserDetails(req.body)).dataValues
+    return res.send(datos)
+  } catch (error) {
+  }
 });
-RouterUsaurio.delete("/" ,  ( req , res) =>{
-      return res.send({msg:`"Se elimino el usuario con el id ${req.body} "    `})
+
+
+RouterUsaurio.delete("/eliminar/:id", async (req, res) => {
+
+  const { id } = (req.params)
+  if (!id) return res.send(404).json("no datos")
+  let ConvertToinr = Number(id)
+  let datos = await usuariocontroller.DeleUser(ConvertToinr)
+  return res.send(datos)
+
+
+
+
 })
 
-RouterUsaurio.patch("/usuaruios" , ( req,  res) =>{
-    return res.send({msg:"actualizar en el usuariuo !!!"})
+RouterUsaurio.patch("/usuaruios", (req, res) => {
+  return res.send({ msg: "actualizar en el usuariuo !!!" })
+})
+
+RouterUsaurio.get("/buscar/:id", async (req, res) => {
+
+  try {
+    const { id } = req.params
+    let datos = await usuariocontroller.FindeUser(Number(id))
+    return res.send(datos)
+    // console.log( datos)
+  } catch (error) {
+    console.log(error)
+  }
 })
