@@ -56,9 +56,11 @@ RouterUsaurio.get("/buscar/:id", async (req, res) => {
   try {
     const { id } = req.params
     let datos = await usuariocontroller.FindeUser(Number(id))
-    return res.send(datos)
-    // console.log( datos)
-  } catch (error) {
-    console.log(error)
+    if ( !datos) return res.status(404).json({error:"mensaje no encontrado"})
+    return res.status(200).json( datos)
+  
+  } catch (error) { 
+     return res.status(500).json({error:"Error interno"})
+
   }
 })

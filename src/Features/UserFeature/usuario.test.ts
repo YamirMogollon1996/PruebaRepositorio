@@ -4,7 +4,49 @@ import request from "supertest"
 import { Suma } from "./suma";
 import { UserServices } from "../../services/services"
 import { UsuarioCreadoForMe } from "../UsuarioEntitty";
-import { db } from "../../db/db";
+import { db } from "../../db/db";  
+import { ControlleUser } from "../../controllers/controller";
+
+
+
+describe("Probando mi endpoint de busqeudad", () => {
+
+  test("[FindUser] ", async () => {
+    const res = await request(app).get("/user/buscar/2")
+    expect(res.status).toBe(200)
+    // expect( res.body)
+  })
+  test("Verficar el error 404", async () => {
+    const res = await request(app).get("/user/buscar/99999999999999");
+    expect(res.status).toBe(404);
+    expect(res.body).toEqual(expect.objectContaining({error:"mensaje no encontrado"}))
+
+  }) 
+
+  test("validar contenido de la ruta  [find]",   async () =>{
+ 
+     const res = await request(app).get("/user/buscar/2")   
+     expect(res.body).toEqual(expect.objectContaining({
+
+       id : 2 ,
+        name: expect.any(String),
+        lastname: expect.any(String),
+        edad: expect.any(Number),
+     }))
+  }) 
+
+
+  test("validar error del sistema" ,  async () =>{
+        jest.spyOn(ControlleUser.prototype,"FindeUser").mockRejectedValue(new Error("db"))
+        let res= await request(app).get("/user/buscar/3")
+        expect(res.status).toBe(500) 
+        expect(res.body).toEqual(
+          {error:"Error interno"}
+        )
+  })
+  
+})
+
 
 describe("Probando mis apis ", () => {
   test("Debe fallar si no me falla el body", async () => {
@@ -34,11 +76,6 @@ describe("Probando mis apis ", () => {
     expect(res.body).toHaveProperty("lastname");
     expect(res.body).toHaveProperty("edad");
   })
-
-
-
-
-
 })
 
 
